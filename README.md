@@ -1,18 +1,38 @@
 ![TrackNMe](https://www.tracknme.com.br/app/images/logo-tracknme.png)
 
 
-# Desafio Mobile
+# Desafio WEB
 
 O candidato deve dar **fork** neste repositório e após o termino do desenvolvimento, realizar um **pull request** e avisar por **email** para análise do time.
 
-O desafio consiste em criar um app com as seguintes características:
+O desafio consiste em criar uma página web com as seguintes características:
 
 # Task 1 - Desenhar um trajeto no mapa
 
-Implementar um app cuja tela principal apresenta um mapa (google maps) e um trajeto obtido de uma api REST.
-Aconselhamos que use o [Apiary](https://apiary.io) como API nessa etapa.
-O app deve consultar a api REST e salvar o resultado (exemplo em '/assets/posicoes.json') em banco de dados local.
-Após a consulta o app deve fazer uma consulta a base de dados local e desenhar o trajeto obtido da base local.
+Implementar uma página web cuja tela principal apresenta um mapa (google maps) e um trajeto obtido de uma api REST.
+Recomendamos que use o [Apiary](https://apiary.io) como API nessa etapa ou alguma similar de sua escolha.
+O app deve consultar a api REST e salvar o resultado (JSON) localmente (session/local storage).
+Após a consulta o app deve fazer buscar na session/local storage os dados salvos da consulta na API e desenhar o trajeto obtido.
+
+Exemplo de retorno da API:
+
+``` json
+[ 
+    {
+    	"dateTime": "2017-10-12T21:34:15",
+	    "latitude": -23.962676666666667,
+	    "longitude": -46.3884785
+    },
+    {
+    	"dateTime": "2017-10-12T21:40:15",
+	    "latitude": -23.982676666666667,
+	    "longitude": -46.4084785
+    }
+]
+```
+
+Diferencial, porém não obrigatório: 
+Personalizar o marcador e animar sua transição no mapa.
 
 # Task 2 - Calendario
 
@@ -26,8 +46,11 @@ GET /posicoes?data=2017-01-02 (Imprime apenas as posições obtidas do dia 02/01
 
 E assim por diante.
 
-Todos os resultados devem ser salvos em banco de dados local.
-Para efeito de cache, posições de uma data já pesquisada, não devem fazer a chamada REST novamente. Seu conteudo deve ser obtido do banco de dados local, neste caso.
+Todos os resultados devem ser salvos localmente (session/local storage).
+Para efeito de cache, posições de uma data já pesquisada, não devem fazer a chamada REST novamente. Seu conteudo deve ser obtido do storage, neste caso.
+
+Diferencial, porém não obrigatório: 
+Mostrar informações em cada ponto do trajeto (infowindow)
 
 ---
 #### LICENSE
